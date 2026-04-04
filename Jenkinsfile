@@ -16,6 +16,8 @@ pipeline {
                 . venv/bin/activate
                 pip install --upgrade pip
                 pip install -r app/requirements.txt
+                # Fix module path issue
+                export PYTHONPATH=$PWD
                 pytest tests/
                 '''
             }
